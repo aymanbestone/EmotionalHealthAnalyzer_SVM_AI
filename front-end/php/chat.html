@@ -1,0 +1,56 @@
+<!-- <?php
+session_start();
+if(!isset($_SESSION['u']))
+{
+	header("location: login.php");
+}
+require_once('exo13.inc.php');
+# controle du droit d'accès
+# récupération de la liste des clients
+$sql='  select *from utilisateur ';
+$statment=$db->query($sql);
+$utilisateurs = $statment->fetchall(PDO::FETCH_ASSOC);
+$nbClients=$statment->rowcount();
+?> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/chat.css">
+
+</head>
+<body>
+<header style="z-index: 1000;">
+        <div class="logo" >
+            <a href="index.html"> <span>BRIGHT</span>LIFE</a>
+        </div>
+        <ul class="logo logox" >
+            <li><a href="#">Welcome to our Chat App! Let's Talk!</a></li>
+        </ul>
+        <a href="#" class="btn-reservation">successfully!!</a>
+
+        <div class="responsive-menu"></div>
+    </header>  
+
+    <div class="chat-container" style="z-index: 1000;">
+        <div class="chat-header">
+            <h1>Chat<span style=" color: #29d9d5;">bot</span></h1>
+        </div>
+        <div id="chatbox" class="chatbox">
+            <div class="message bot-message">Hello! How can I help you today?</div>
+        </div>
+        <form action="">
+        <div class="chat-input-container">
+            <input type="text" id="userInput" class="sentiment" placeholder="Write your setiment..." required>
+            <input type="submit" value="send">
+        </div>
+        
+    </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js" integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="../js/chat.js"></script>
+</body>
+</html>
